@@ -14,8 +14,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var email: MutableLiveData<String> = MutableLiveData()
     var password: MutableLiveData<String> = MutableLiveData()
 
-    var errorEmail: MutableLiveData<String?> = MutableLiveData()
-    var errorPassword: MutableLiveData<String?> = MutableLiveData()
+    var errorEmail: MutableLiveData<String> = MutableLiveData()
+    var errorPassword: MutableLiveData<String> = MutableLiveData()
 
     fun setupLiveData(lifecycleOwner: LifecycleOwner, context: Context) {
         email.observe(lifecycleOwner, Observer { email ->

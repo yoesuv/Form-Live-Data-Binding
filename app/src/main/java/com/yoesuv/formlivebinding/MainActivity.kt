@@ -16,6 +16,8 @@ import com.yoesuv.formlivebinding.databinding.ActivityMainBinding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
 
+        setSupportActionBar(binding.toolbar)
+
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java);
         binding.main = viewModel
         viewModel.setupLiveData(this, this)
