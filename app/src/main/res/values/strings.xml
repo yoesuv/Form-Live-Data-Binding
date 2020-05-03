@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Form Live Binding</string>
+
+    <string name="validation_email_empty">Email is empty</string>
+    <string name="validation_email_not_valid">Email is not valid</string>
+    <string name="validation_password_empty">Password is empty</string>
+    <string name="validation_password_min">Password minimal 5 character</string>
 </resources>

@@ -18,5 +18,6 @@ import com.yoesuv.formlivebinding.databinding.ActivityMainBinding
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java);
         binding.main = viewModel
+        viewModel.setupLiveData(this, this)
     }
 }
