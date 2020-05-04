@@ -5,6 +5,9 @@ use Data Binding MVVM architecture and Live Data library
 
 download apk file [here](https://www.dropbox.com/s/qerlh04ms8w2lzq)
 
+#### References
+- [proandroiddev](https://proandroiddev.com/advanced-data-binding-binding-to-livedata-one-and-two-way-binding-dae1cd68530f)
+
 #### Screenshot
 | 1 | 2 | 3 |
 | :---: | :---: | :---: |
