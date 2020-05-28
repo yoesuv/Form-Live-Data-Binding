@@ -2,6 +2,8 @@ package com.yoesuv.formlivebinding
 
 import android.app.Application
 import android.content.Context
+import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
@@ -38,6 +40,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun validateInput(email: Boolean, password: Boolean) {
         isValid.postValue(email && password)
+    }
+
+    fun clickLogin(view: View) {
+        Toast.makeText(view.context, "${email.value} ${password.value}", Toast.LENGTH_SHORT).show()
     }
 
 }
