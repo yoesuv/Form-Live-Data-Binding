@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import com.yoesuv.utils.validateEmail
 import com.yoesuv.utils.validatePassword
 
@@ -24,13 +23,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var isPasswordValid: Boolean = false
 
     fun setupLiveData(lifecycleOwner: LifecycleOwner, context: Context) {
-        email.observe(lifecycleOwner, Observer { email ->
+        email.observe(lifecycleOwner, { email ->
             val validationModel = email.validateEmail(context)
             isEmailValid = validationModel.isValid
             validateInput(isEmailValid, isPasswordValid)
             errorEmail.postValue(validationModel.message)
         })
-        password.observe(lifecycleOwner, Observer { password ->
+        password.observe(lifecycleOwner, { password ->
             val validationModel = password.validatePassword(context)
             isPasswordValid = validationModel.isValid
             validateInput(isEmailValid, isPasswordValid)
