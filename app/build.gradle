@@ -14,15 +14,13 @@ android {
         }
     }
 
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
-
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.yoesuv.formlivebinding"
         minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0.0"
+        targetSdkVersion 30
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         setProperty("archivesBaseName", applicationId+"-v"+versionCode+"("+versionName+")")
@@ -30,17 +28,18 @@ android {
 
     buildTypes {
         debug {
+            minifyEnabled false
             signingConfig signingConfigs.release
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
 }
