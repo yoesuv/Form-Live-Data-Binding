@@ -1,4 +1,4 @@
-## Android Form Live Data Binding 1.0.2 ##
+## Android Form Live Data Binding 1.0.3 ##
 
 implement binding live data on android to validate input form.  
 use Data Binding MVVM architecture and Live Data library 
