@@ -26,19 +26,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         email.observe(lifecycleOwner, { email ->
             val validationModel = email.validateEmail(context)
             isEmailValid = validationModel.isValid
-            validateInput(isEmailValid, isPasswordValid)
+            validateInput()
             errorEmail.postValue(validationModel.message)
         })
         password.observe(lifecycleOwner, { password ->
             val validationModel = password.validatePassword(context)
             isPasswordValid = validationModel.isValid
-            validateInput(isEmailValid, isPasswordValid)
+            validateInput()
             errorPassword.postValue(validationModel.message)
         })
     }
 
-    private fun validateInput(email: Boolean, password: Boolean) {
-        isValid.postValue(email && password)
+    private fun validateInput() {
+        isValid.postValue(isEmailValid && isPasswordValid)
     }
 
     fun clickLogin(view: View) {
