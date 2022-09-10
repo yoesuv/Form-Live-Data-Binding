@@ -12,14 +12,14 @@ import com.yoesuv.formlivebinding.databinding.ActivityMainBinding
      private lateinit var viewModel: MainViewModel
 
      override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-            binding.lifecycleOwner = this
+         super.onCreate(savedInstanceState)
+         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+         binding.lifecycleOwner = this
 
-            setSupportActionBar(binding.toolbar)
+         setSupportActionBar(binding.toolbar)
 
-            viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-            binding.main = viewModel
-            viewModel.setupLiveData(this, this)
-        }
+         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+         binding.main = viewModel
+         viewModel.setupLiveData(this, this)
+     }
 }
