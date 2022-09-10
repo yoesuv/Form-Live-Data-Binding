@@ -18,7 +18,7 @@ import com.yoesuv.formlivebinding.databinding.ActivityMainBinding
 
             setSupportActionBar(binding.toolbar)
 
-            viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+            viewModel = ViewModelProvider(this)[MainViewModel::class.java]
             binding.main = viewModel
             viewModel.setupLiveData(this, this)
         }
