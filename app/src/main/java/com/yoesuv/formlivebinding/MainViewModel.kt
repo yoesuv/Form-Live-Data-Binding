@@ -23,18 +23,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var isPasswordValid: Boolean = false
 
     fun setupLiveData(lifecycleOwner: LifecycleOwner, context: Context) {
-        email.observe(lifecycleOwner, { email ->
+        email.observe(lifecycleOwner) { email ->
             val validationModel = email.validateEmail(context)
             isEmailValid = validationModel.isValid
             validateInput()
             errorEmail.postValue(validationModel.message)
-        })
-        password.observe(lifecycleOwner, { password ->
+        }
+        password.observe(lifecycleOwner) { password ->
             val validationModel = password.validatePassword(context)
             isPasswordValid = validationModel.isValid
             validateInput()
             errorPassword.postValue(validationModel.message)
-        })
+        }
     }
 
     private fun validateInput() {
