@@ -40,6 +40,7 @@
                 app:layout_constraintRight_toRightOf="parent">
 
                 <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
@@ -63,6 +64,7 @@
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
