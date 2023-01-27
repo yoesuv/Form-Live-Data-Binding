@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Form Live Binding</string>
-
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
     <string name="button_login">Login</string>
