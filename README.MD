@@ -8,9 +8,9 @@ download apk file [here](https://www.dropbox.com/s/pdvt5x7scwbi4c8)
 to run UI Test, execute `./gradlew connectedForTestDebugAndroidTest`
 
 #### Screenshot
-| Valid | Validate Email | Validate Password |
-| :---: | :---: | :---: |
-| ![](https://i.imgur.com/8gqP1cZ.png) | ![](https://i.imgur.com/zWOMpT8.png) | ![](https://i.imgur.com/PWjfwPC.png) |
+| Pure | Valid | Validate Email | Validate Password |
+| :---: | :---: | :---: | :---: |
+| ![](https://i.imgur.com/pM18XvY.png) | ![](https://i.imgur.com/8gqP1cZ.png) | ![](https://i.imgur.com/zWOMpT8.png) | ![](https://i.imgur.com/PWjfwPC.png) |
 
 #### References ####
 - [proandroiddev](https://proandroiddev.com/advanced-data-binding-binding-to-livedata-one-and-two-way-binding-dae1cd68530f)
