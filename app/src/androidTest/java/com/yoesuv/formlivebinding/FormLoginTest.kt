@@ -8,14 +8,17 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.filters.LargeTest
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
 import org.junit.Before
+import org.junit.Rule
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -23,19 +26,22 @@ import org.junit.Before
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
+@LargeTest
 class FormLoginTest {
 
     private val delay = 1000L
     private lateinit var context: Context
 
+    @get:Rule
+    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+
     @Before
     fun register() {
         context = InstrumentationRegistry.getInstrumentation().targetContext
-        ActivityScenario.launch(MainActivity::class.java)
     }
 
     @Test
-    fun startFlowPositive() {
+    fun loginTest() {
         val btnLogin = onView(withId(R.id.btnLogin))
         val etEmail = onView(withId(R.id.etEmail))
         val etPassword = onView(withId(R.id.etPassword))
