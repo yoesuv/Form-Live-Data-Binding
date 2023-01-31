@@ -3,7 +3,6 @@ package com.yoesuv.formlivebinding
 import android.content.Context
 import android.os.SystemClock
 import android.view.KeyEvent
-import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
