@@ -16,7 +16,7 @@ android {
     }
 
     namespace 'com.yoesuv.formlivebinding'
-    compileSdkVersion 33
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.yoesuv.formlivebinding"
