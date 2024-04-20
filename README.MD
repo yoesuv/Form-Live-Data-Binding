@@ -3,7 +3,7 @@
 implement binding live data on android to validate input form.  
 use Data Binding MVVM architecture and Live Data library  
 
-download apk file [here](https://www.dropbox.com/s/crqg9z9m7ze1h9x)
+download apk file [here](https://e.pcloud.link/publink/show?code=XZYMyMZThxxH7c0fOh5XG1wWjMpoR1vGumX)
 
 to run UI Test, execute `./gradlew connectedForTestDebugAndroidTest`
 

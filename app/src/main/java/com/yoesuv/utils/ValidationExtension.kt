@@ -6,17 +6,17 @@ import com.yoesuv.formlivebinding.R
 
 class ValidationModel(val isValid: Boolean, val message: String)
 
-fun String.validateEmail(context: Context): ValidationModel{
+fun String.validateEmail(context: Context): ValidationModel {
     if (this.trim().isEmpty()) {
-        return  ValidationModel(false, context.getString(R.string.validation_email_empty))
+        return ValidationModel(false, context.getString(R.string.validation_email_empty))
     } else if (!Patterns.EMAIL_ADDRESS.matcher(this).matches()) {
-        return  ValidationModel(false, context.getString(R.string.validation_email_not_valid))
+        return ValidationModel(false, context.getString(R.string.validation_email_not_valid))
     } else {
         return ValidationModel(true, "")
     }
 }
 
-fun String.validatePassword(context: Context): ValidationModel{
+fun String.validatePassword(context: Context): ValidationModel {
     if (this.isEmpty()) {
         return ValidationModel(false, context.getString(R.string.validation_password_empty))
     } else if (this.length < 5) {
