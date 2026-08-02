@@ -1,7 +1,5 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.jetbrainsKotlinKapt)
 }
 
 android {
@@ -29,7 +27,6 @@ android {
         versionName = "1.1.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        setProperty("archivesBaseName", "$applicationId-v$versionCode($versionName)")
     }
 
     buildTypes {
@@ -48,12 +45,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+        }
     }
     buildFeatures {
         dataBinding = true
         buildConfig = true
+        resValues = true
     }
     flavorDimensions.add("default")
     productFlavors {
@@ -69,16 +69,21 @@ android {
     }
 }
 
+base {
+    archivesName.set("${android.defaultConfig.applicationId}-v${android.defaultConfig.versionCode}(${android.defaultConfig.versionName})")
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.lifecycle)
+    implementation(libs.androidx.lifecycle.livedata)
 }
