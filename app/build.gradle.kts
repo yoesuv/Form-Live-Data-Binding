@@ -1,5 +1,9 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.android.application)
+}
+
+base {
+    archivesName.set("${android.defaultConfig.applicationId}-v${android.defaultConfig.versionCode}(${android.defaultConfig.versionName})")
 }
 
 android {
@@ -17,14 +21,18 @@ android {
     }
 
     namespace = "com.yoesuv.formlivebinding"
-    compileSdk = 34
+    compileSdk {
+        version = release(36) {
+            minorApiLevel = 1
+        }
+    }
 
     defaultConfig {
         applicationId = "com.yoesuv.formlivebinding"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 8
-        versionName = "1.1.3"
+        versionName = "1.1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,6 +45,7 @@ android {
         }
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
         }
@@ -45,11 +54,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlin {
-        compilerOptions {
-            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
-        }
-    }
+
     buildFeatures {
         dataBinding = true
         buildConfig = true
@@ -69,9 +74,13 @@ android {
     }
 }
 
-base {
-    archivesName.set("${android.defaultConfig.applicationId}-v${android.defaultConfig.versionCode}(${android.defaultConfig.versionName})")
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+    }
 }
+
+
 
 dependencies {
 

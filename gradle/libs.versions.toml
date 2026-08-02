@@ -1,5 +1,5 @@
 [versions]
-agp = "9.3.1"
+agp = "9.2.1"
 kotlin = "2.4.10"
 coreKtx = "1.10.1"
 junit = "4.13.2"
@@ -24,6 +24,6 @@ androidx-lifecycle = {group = "androidx.lifecycle", name = "lifecycle-runtime-kt
 androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "viewModelKtx" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-jetbrainsKotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
