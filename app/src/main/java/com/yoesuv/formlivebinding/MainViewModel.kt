@@ -10,8 +10,9 @@ import androidx.lifecycle.MutableLiveData
 import com.yoesuv.utils.validateEmail
 import com.yoesuv.utils.validatePassword
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
-
+class MainViewModel(
+    application: Application,
+) : AndroidViewModel(application) {
     val email: MutableLiveData<String> = MutableLiveData()
     val password: MutableLiveData<String> = MutableLiveData()
     val isValid: MutableLiveData<Boolean> = MutableLiveData()
@@ -22,7 +23,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var isEmailValid: Boolean = false
     private var isPasswordValid: Boolean = false
 
-    fun setupLiveData(lifecycleOwner: LifecycleOwner, context: Context) {
+    fun setupLiveData(
+        lifecycleOwner: LifecycleOwner,
+        context: Context,
+    ) {
         email.observe(lifecycleOwner) { email ->
             val validationModel = email.validateEmail(context)
             isEmailValid = validationModel.isValid
@@ -44,5 +48,4 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun clickLogin(view: View) {
         Toast.makeText(view.context, "${email.value} ${password.value}", Toast.LENGTH_SHORT).show()
     }
-
 }

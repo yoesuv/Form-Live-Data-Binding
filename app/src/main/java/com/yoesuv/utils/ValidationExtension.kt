@@ -4,7 +4,10 @@ import android.content.Context
 import android.util.Patterns
 import com.yoesuv.formlivebinding.R
 
-class ValidationModel(val isValid: Boolean, val message: String?)
+class ValidationModel(
+    val isValid: Boolean,
+    val message: String?,
+)
 
 fun String.validateEmail(context: Context): ValidationModel {
     if (this.trim().isEmpty()) {
