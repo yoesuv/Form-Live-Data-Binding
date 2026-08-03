@@ -12,12 +12,12 @@ import com.yoesuv.utils.validatePassword
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    var email: MutableLiveData<String> = MutableLiveData()
-    var password: MutableLiveData<String> = MutableLiveData()
-    var isValid: MutableLiveData<Boolean> = MutableLiveData()
+    val email: MutableLiveData<String> = MutableLiveData()
+    val password: MutableLiveData<String> = MutableLiveData()
+    val isValid: MutableLiveData<Boolean> = MutableLiveData()
 
-    var errorEmail: MutableLiveData<String> = MutableLiveData()
-    var errorPassword: MutableLiveData<String> = MutableLiveData()
+    val errorEmail: MutableLiveData<String?> = MutableLiveData()
+    val errorPassword: MutableLiveData<String?> = MutableLiveData()
 
     private var isEmailValid: Boolean = false
     private var isPasswordValid: Boolean = false
