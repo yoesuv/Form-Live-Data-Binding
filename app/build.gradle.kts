@@ -3,13 +3,13 @@ plugins {
 }
 
 base {
-    archivesName.set("${android.defaultConfig.applicationId}-v${android.defaultConfig.versionCode}(${android.defaultConfig.versionName})")
+    archivesName.set("${android.defaultConfig.applicationId}-v${android.defaultConfig.versionName}")
 }
 
 android {
-    val alias = project.properties["KEY_ALIAS"].toString()
-    val key = project.properties["KEY_PASSWORD"].toString()
-    val store = project.properties["STORE_PASSWORD"].toString()
+    val alias = providers.gradleProperty("KEY_ALIAS").get()
+    val key = providers.gradleProperty("KEY_PASSWORD").get()
+    val store = providers.gradleProperty("STORE_PASSWORD").get()
 
     signingConfigs {
         create("release") {
