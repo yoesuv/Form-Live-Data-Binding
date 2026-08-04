@@ -3,7 +3,11 @@ plugins {
 }
 
 base {
-    archivesName.set("${android.defaultConfig.applicationId}-v${android.defaultConfig.versionName}")
+    archivesName.set(
+        providers.provider {
+            "${android.defaultConfig.applicationId}-v${android.defaultConfig.versionName}"
+        },
+    )
 }
 
 android {
