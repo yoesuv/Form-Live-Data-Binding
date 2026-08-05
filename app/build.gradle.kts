@@ -1,13 +1,19 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.jetbrainsKotlinKapt)
+    alias(libs.plugins.android.application)
+}
+
+base {
+    archivesName.set(
+        providers.provider {
+            "${android.defaultConfig.applicationId}-v${android.defaultConfig.versionName}"
+        },
+    )
 }
 
 android {
-    val alias = project.properties["KEY_ALIAS"].toString()
-    val key = project.properties["KEY_PASSWORD"].toString()
-    val store = project.properties["STORE_PASSWORD"].toString()
+    val alias = providers.gradleProperty("KEY_ALIAS").get()
+    val key = providers.gradleProperty("KEY_PASSWORD").get()
+    val store = providers.gradleProperty("STORE_PASSWORD").get()
 
     signingConfigs {
         create("release") {
@@ -19,17 +25,21 @@ android {
     }
 
     namespace = "com.yoesuv.formlivebinding"
-    compileSdk = 34
+    compileSdk {
+        version =
+            release(36) {
+                minorApiLevel = 1
+            }
+    }
 
     defaultConfig {
         applicationId = "com.yoesuv.formlivebinding"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 8
-        versionName = "1.1.3"
+        versionName = "1.1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        setProperty("archivesBaseName", "$applicationId-v$versionCode($versionName)")
     }
 
     buildTypes {
@@ -40,6 +50,7 @@ android {
         }
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
         }
@@ -48,12 +59,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         dataBinding = true
         buildConfig = true
+        resValues = true
     }
     flavorDimensions.add("default")
     productFlavors {
@@ -69,16 +79,23 @@ android {
     }
 }
 
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+    }
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.lifecycle)
+    implementation(libs.androidx.lifecycle.livedata)
 }

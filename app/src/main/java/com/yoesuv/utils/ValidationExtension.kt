@@ -4,7 +4,10 @@ import android.content.Context
 import android.util.Patterns
 import com.yoesuv.formlivebinding.R
 
-class ValidationModel(val isValid: Boolean, val message: String)
+class ValidationModel(
+    val isValid: Boolean,
+    val message: String?,
+)
 
 fun String.validateEmail(context: Context): ValidationModel {
     if (this.trim().isEmpty()) {
@@ -12,7 +15,7 @@ fun String.validateEmail(context: Context): ValidationModel {
     } else if (!Patterns.EMAIL_ADDRESS.matcher(this).matches()) {
         return ValidationModel(false, context.getString(R.string.validation_email_not_valid))
     } else {
-        return ValidationModel(true, "")
+        return ValidationModel(true, null)
     }
 }
 
@@ -22,6 +25,6 @@ fun String.validatePassword(context: Context): ValidationModel {
     } else if (this.length < 5) {
         return ValidationModel(false, context.getString(R.string.validation_password_min))
     } else {
-        return ValidationModel(true, "")
+        return ValidationModel(true, null)
     }
 }

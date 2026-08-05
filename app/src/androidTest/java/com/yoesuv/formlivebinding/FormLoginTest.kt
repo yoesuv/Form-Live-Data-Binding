@@ -4,20 +4,25 @@ import android.content.Context
 import android.os.SystemClock
 import android.view.KeyEvent
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.action.ViewActions.clearText
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
+import androidx.test.espresso.action.ViewActions.pressKey
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.isEnabled
+import androidx.test.espresso.matcher.ViewMatchers.isNotEnabled
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-
-import org.junit.Test
-import org.junit.runner.RunWith
-
-import org.junit.Assert.*
+import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -27,7 +32,6 @@ import org.junit.Rule
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class FormLoginTest {
-
     private val delay = 1000L
     private lateinit var context: Context
 
@@ -46,7 +50,8 @@ class FormLoginTest {
         val etPassword = onView(withId(R.id.etPassword))
 
         btnLogin.check(matches(isNotEnabled()))
-        etEmail.perform(typeText("apple@gmail.com"))
+        etEmail
+            .perform(typeText("apple@gmail.com"))
             .check(matches(withText("apple@gmail.com")))
         SystemClock.sleep(delay)
         etEmail.perform(clearText())
@@ -59,7 +64,8 @@ class FormLoginTest {
         SystemClock.sleep(delay)
         etEmail.perform(closeSoftKeyboard())
 
-        etPassword.perform(typeText("password"))
+        etPassword
+            .perform(typeText("password"))
             .check(matches(withText("password")))
         SystemClock.sleep(delay)
         etPassword.perform(closeSoftKeyboard())
@@ -80,5 +86,4 @@ class FormLoginTest {
         SystemClock.sleep(delay)
         SystemClock.sleep(delay)
     }
-
 }
